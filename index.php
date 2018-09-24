@@ -16,6 +16,12 @@
 
   });
 
+  $app->get('/awita', function () {
+
+    echo "papi";
+
+  });
+
   $app->run();
 
 ?>
