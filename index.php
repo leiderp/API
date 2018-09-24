@@ -16,6 +16,12 @@
 
   });
 
+  $app->get('/awa', function () {
+
+    echo "uwu";
+
+  });
+
   $app->run();
 
 ?>
