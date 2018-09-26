@@ -54,6 +54,13 @@
 
   });
 
+  $app->get('/cat', function () {
+
+    echo "c'est une prueve";
+
+  });
+
+
   $app->run();
 
 ?>
