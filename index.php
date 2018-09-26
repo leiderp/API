@@ -22,7 +22,7 @@
 
   });
 
-  $app->get('/perro', function () {
+  $app->get('/cat', function () {
 
     echo "c'est une prueve";
 
