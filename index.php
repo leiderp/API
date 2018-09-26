@@ -22,6 +22,13 @@
 
   });
 
+  $app->get('/perro', function () {
+
+    echo "c'est une prueve";
+
+  });
+
+
   $app->run();
 
 ?>
