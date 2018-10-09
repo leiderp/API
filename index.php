@@ -13,39 +13,25 @@
 				return $conexion;
 			}
 		}
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
   $app = new \Slim\App;
 
   $app->get('/', function () {
-	  $db = Conectar::conexion();
-	  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE state = 'KERALA' and PHONE = '0477-2230767'");
-	  $consulta->execute();
-	  $resultado = $consulta->fetchAll();
-	  $items = $consulta->rowCount();
-	  for ($i=0; $i <= ($items-1); $i++) { 
-		  echo $resultado[$i]['HOTEL NAME'];
-		  echo nl2br("\n");
-		  echo $resultado[$i]['ADDRESS'];
-		  echo nl2br("\n");
-		  echo $resultado[$i]['STATE']; 
-		  echo nl2br("\n");
-		  echo $resultado[$i]['PHONE'];
-		  echo nl2br("\n");
-		  echo $resultado[$i]['FAX'];
-		  echo nl2br("\n");
-		  echo $resultado[$i]['EMAIL ID'];
-		  echo nl2br("\n");
-		  echo $resultado[$i]['WEBSITE'];
-		  echo nl2br("\n");
-		  echo $resultado[$i]['TYPE'];
-		  echo nl2br("\n");
-		  echo $resultado[$i]['Rooms'];
-	  }
+	  
+	
+	  
   });
 
-  $app->get('/cincoestrellas', function () {
-
-    echo "hoteles";
-
+  $app->get('/consulta/{p}', function (Request $request, Response $response) {
+	  
+	  $t = $request->getAttribute('p');
+	  $db = Conectar::conexion();
+	  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE HOTEL_NAME = '$t'");
+	  $consulta->execute();
+	  $resultado = $consulta->fetchAll(PDO::FETCH_OBJ);
+	  echo (json_encode($resultado));
+	  
   });
 
   $app->get('/awita', function () {
