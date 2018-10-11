@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 26-09-2018 a las 03:48:43
+-- Tiempo de generación: 11-10-2018 a las 19:14:10
 -- Versión del servidor: 5.7.21
 -- Versión de PHP: 5.6.35
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `informacion`;
 CREATE TABLE IF NOT EXISTS `informacion` (
-  `HOTEL NAME` varchar(44) DEFAULT NULL,
+  `HOTEL_NAME` varchar(44) DEFAULT NULL,
   `ADDRESS` varchar(153) DEFAULT NULL,
   `STATE` varchar(16) DEFAULT NULL,
   `PHONE` varchar(24) DEFAULT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `informacion` (
 -- Volcado de datos para la tabla `informacion`
 --
 
-INSERT INTO `informacion` (`HOTEL NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
+INSERT INTO `informacion` (`HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
 ('Raheem Residency', '20/1100Beach Road, Alleppey West - 688 012, KERALA', 'KERALA', '0477-2230767', '0477-2239767', 'contact@raheemresidency.com', 'www.raheemresidency.com', 'Heritage Classic', 10),
 ('Noor Us Sabah Palace', 'V.I.P.RoadKoh-E-Fiza, Bhopal - 462001, MADHYA PRADESH', 'MADHYA PRADESH', '0755-4223333/4239996', '0755-4227777', 'contact@noorussabahpalace.com/reservations@nusp.in', 'www.noorussabahpalace.com', 'Heritage Classic', 57),
 ('The Panjim Inn ', '31-ST JANUARY ROAD, FONTAINHAS, PANAJI, Panaji , GOA', 'GOA', '4564277301', '4565273111', 'visalam@cghearth.com', 'www.cghearth.com', 'Heritage Basic', 15),
@@ -298,7 +298,7 @@ INSERT INTO `informacion` (`HOTEL NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EM
 ('Excalibur Hotels & Resorts', 'Carithas Junction,MC Road,Thellakon, Kottayam, KERALA', 'KERALA', '4812791781', '4812711784', 'hotel.excalibur@gmail.com', 'www.excalibur.in', '4 Star', 20),
 ('Raj Residency', 'Near New bus standAlamipally, Kanhangad, KERALA', 'KERALA', '4672208444', '4672217294', 'rajgrouphotels@gmail.com', 'rajgrouphotels.com', '4 Star', 198),
 ('Muthoot Cardamom County Resort', 'Kumily (PO)Thekkady, Idukki (Dist.) - 685536, KERALA', 'KERALA', '04869-224501', '04869-222869/222807', 'reservations@muthoothotels.com', 'www.raxacollective.com', '4 Star', 44);
-INSERT INTO `informacion` (`HOTEL NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
+INSERT INTO `informacion` (`HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
 ('Hotel White Dammar International', 'Pappanamcode, Trivandrum - 695 018, KERALA', 'KERALA', '4712496601', '4712496602', 'whitedammar@gmail.com', 'hotelwhitedammar@gmail.com', '4 Star', 12),
 ('Hotel SP Grand Days', 'Panavila JnThycaud P.O., Thiruvananthapuram - 695014, KERALA', 'KERALA', '0471-2333344', '0471-2321000', 'mail@spgranddays.com', 'www.spgranddays.com', '4 Star', 69),
 ('Hotel Peninsula Park Residency', 'Motel and Resorts Pvt. Ltd.Parakode, Adoor, Pathanamthitta Dist., KERALA', 'KERALA', '4734243435', '4734243345', 'parkresidency.park@gmail.com', 'NA', '4 Star', 20),
@@ -348,6 +348,26 @@ INSERT INTO `informacion` (`HOTEL NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EM
 ('Fortune Inn Grazia', '(Unit of Angel Baby Products Pvt. Ltd) Plot NO.1 A, Block - 1Sector - 27 Noida, UTTAR PRADESH', 'UTTAR PRADESH', '1203988444', '1203380144', 'gm.roc.nm@royalorchidhotels.com', 'royalorchidhotels.com', '4 Star', 42),
 ('Country Inn & Suites by Carlson - Haridwar', '( Unit of Sens Udyog Pvt. Ltd.)Haripurkalan, Raiwala, Motichur, Haridwar - Rishikesh Highway, Haridwar, Dist. Dehradun - 249205, UTTARAKHAND', 'UTTARAKHAND', '0135-2485900', '0135-2485901', 'reservations@cisharidwar.com', 'NA', '4 Star', 56),
 ('The Peerless Inn', '12J. L. Nehru Road, Kolkata - 700 013, WEST BENGAL', 'WEST BENGAL', '033-44003900', '033-22281270', 'pik@sarovarhotels.com', 'www.peerlesshotels.com', '4 Star', 122);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `userid` int(11) NOT NULL,
+  `name` varchar(500) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`userid`),
+  UNIQUE KEY `lastname` (`lastname`),
+  UNIQUE KEY `address` (`address`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
