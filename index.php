@@ -47,11 +47,17 @@
       $email = $request->getParam('email');
       $password = $request->getParam('password');
 
-
-      $sql = "INSERT INTO usuarios (name, last_name, address, email, password) VALUES
-      (:name, :last_name, :address, :email, :password)";
   	  $db = Conectar::conexion();
 
+      /*Id actual*/
+      $sql = "SELECT `AUTO_INCREMENT` AS 'ID' FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'hoteles_db' AND TABLE_NAME = 'usuarios'";
+      $stmt = $db->prepare($sql);
+      $stmt->execute();
+
+      $resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
+      /*Creacion del usuario*/
+      $sql = "INSERT INTO usuarios (name, last_name, address, email, password) VALUES
+      (:name, :last_name, :address, :email, :password)";
       $stmt = $db->prepare($sql);
 
       $stmt-> bindParam(':name', $name);
@@ -62,9 +68,10 @@
 
   	  $stmt->execute();
 
-      echo '{"response" : "User created"}';
-      return $response;
+      return json_encode($resultado);
+
     });
+
 
 
   /*$resultado = $consulta->fetchAll(PDO::FETCH_OBJ);*/
