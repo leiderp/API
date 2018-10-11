@@ -1,77 +1,62 @@
 <?php
   require "vendor/autoload.php";
-	class Conectar{
-			public static function conexion(){
-				$usr="root";
-				$psswrd="";
-				try{
-					$conexion = new PDO('mysql:host=localhost;dbname=hoteles_db',$usr,$psswrd);
-				}catch(Exception $e){
-					die("Error" .$e->getMessage());
-					echo "Linea del error" . $e->getLine();
-				}
-				return $conexion;
-			}
-		}
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+  require "Modelo/Conectar.php";
+	
+  use \Psr\Http\Message\ServerRequestInterface as Request;
+  use \Psr\Http\Message\ResponseInterface as Response;
   $app = new \Slim\App;
 
   $app->get('/', function () {
-	  
 	  ?>
-<!doctype html>
-<head>
-	
-</head>
+	  <html>
+	<head>
+		<title>Formulario de Registro</title>
+		<link rel="stylesheet" type="text/css" href="Vista/bootstrap/css/bootstrap.min.css">
+	</head>
+	<body>
+	<?php include "Controlador/navbar.php"; ?>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+		<h2>Registro</h2>
 
-<body>
-	<link href="c.css" rel="stylesheet" type="text/css">
-	<script src="j.json"></script>
-	<div id="registration-form">
-	<div class='fieldset'>
-    <legend>Registro</legend>
-		<form action="#" method="post" data-validate="parsley">
-			<div class='row'>
-				<label for="email">E-mail</label>
-				<input type="text" placeholder="E-mail"  name='email' data-required="true" data-type="email" data-error-message="Your E-mail is required"  id="em">
-			</div>
-			<div class='row'>
-				<label for='firstname'>Name</label>
-				<input type="text" placeholder="First" name='firstname' id='firstname' data-required="true" data-error-message="Your First Name is required"  id="nm">
-			</div>
-			<div class='row'>
-				<label for="cemail">Last name</label>
-				<input type="text" placeholder="Last name" name='lastname' data-required="true" data-error-message="Your E-mail must correspond" id="lnm">
-			</div>
-			<div class='row'>
-				<label for="cemail">Address</label>
-				<input type="text" placeholder="Address" name='address' data-required="true" data-error-message="Your E-mail must correspond"  id="ad">
-			</div>
-			<div class='row'>
-				<label for="cemail">Passaword</label>
-				<input type="text" placeholder="Confirm your E-mail" name='cemail' data-required="true" data-error-message="Your E-mail must correspond" id="ps">
-			</div>
-			<input type="submit" value="Register" onClick="prueba();" >
+		<form role="form" name="registro" action="Controlador/registro.php" method="post">
+		  <div class="form-group">
+		    <label for="username">Name</label>
+		    <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de usuario">
+		  </div>
+		  <div class="form-group">
+		    <label for="fullname">Last name</label>
+		    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nombre Completo">
+		  </div>
+		  <div class="form-group">
+		    <label for="address">Address</label>
+		    <input type="text" class="form-control" id="address" name="address" placeholder="Nombre Completo">
+		  </div>
+		  <div class="form-group">
+		    <label for="email">Correo Electronico</label>
+		    <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electronico">
+		  </div>
+		  <div class="form-group">
+		    <label for="password">Contrase&ntilde;a</label>
+		    <input type="password" class="form-control" id="password" name="password" placeholder="Contrase&ntilde;a">
+		  </div>
+		  <div class="form-group">
+		    <label for="confirm_password">Confirmar Contrase&ntilde;a</label>
+		    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmar Contrase&ntilde;a">
+		  </div>
+
+		  <button type="submit" class="btn btn-default">Registrar</button>
 		</form>
-	</div>
-</div>
+		</div>
+		</div>
+		</div>
 
-</body>
-      
+		<script src="Controlador/js/valida_registro.js"></script>
+	</body>
 </html>
-
-<script>
-	
-	
-
-
-
-</script>
-<?php
 	  
-	
-	  
+	  <?php
   });
 
   $app->get('/CONSULTAS/{c}/{n}', function (Request $request, Response $response) {
@@ -103,7 +88,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 	  
 	  
 	  
-	  
+	  echo("dnjwndjen");
   });
 
 
