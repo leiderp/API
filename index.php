@@ -11,27 +11,25 @@
   });
 
   $app->get('/consultas/{atributo}/{nombre}', function (Request $request, Response $response) {
-	  $nombre = $request->getAttribute('nombre');
-	  $atributo = $request->getAttribute('atributo');
-	  $nombre = str_replace("-"," ",$nombre);
-	  $atributo = str_replace("-"," ",$atributo);
-	  echo($atributo);
-	  echo($nombre);
+	  $n = $request->getAttribute('nombre');
+	  $c = $request->getAttribute('atributo');
+	  $n = str_replace("_"," ","$n");
+	  echo($n);
 	  $db = Conectar::conexion();
-	  if($atributo == 'size'){
-		  if($nombre == 'small'){
+	  if($c == 'size'){
+		  if($n == 'small'){
 			  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE Rooms >= 10 and Rooms <= 50 ");
 		  }else{
-			  if($nombre == 'medium'){
+			  if($n == 'medium'){
 				  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE Rooms >= 51 and Rooms <= 100 ");
 			  }else{
-				  if($nombre == 'large'){
+				  if($n == 'large'){
 					  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE Rooms > 100 ");
 				  }
 			  }
 		  }
 	  }else{
-		  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE $atributo = $nombre");
+		  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE $c = '$n'");
 	  }
 	  $consulta->execute();
 	  $resultado = $consulta->fetchAll(PDO::FETCH_OBJ);
