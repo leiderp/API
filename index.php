@@ -11,23 +11,27 @@
   });
 
   $app->get('/consultas/{atributo}/{nombre}', function (Request $request, Response $response) {
-	  $n = $request->getAttribute('nombre');
-	  $c = $request->getAttribute('atributo');
+	  $nombre = $request->getAttribute('nombre');
+	  $atributo = $request->getAttribute('atributo');
+	  $nombre = str_replace("-"," ",$nombre);
+	  $atributo = str_replace("-"," ",$atributo);
+	  echo($atributo);
+	  echo($nombre);
 	  $db = Conectar::conexion();
-	  if($c == 'size'){
-		  if($n == 'small'){
+	  if($atributo == 'size'){
+		  if($nombre == 'small'){
 			  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE Rooms >= 10 and Rooms <= 50 ");
 		  }else{
-			  if($n == 'medium'){
+			  if($nombre == 'medium'){
 				  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE Rooms >= 51 and Rooms <= 100 ");
 			  }else{
-				  if($n == 'large'){
+				  if($nombre == 'large'){
 					  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE Rooms > 100 ");
 				  }
 			  }
 		  }
 	  }else{
-		  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE $c = '$n'");
+		  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE $atributo LIKE '%$nombre%'");
 	  }
 	  $consulta->execute();
 	  $resultado = $consulta->fetchAll(PDO::FETCH_OBJ);
@@ -91,6 +95,7 @@ $app->put('/usuario/update/{id}', function (Request $request, Response $response
 	    $stmt-> bindParam(':email', $email);
 		$stmt-> bindParam(':password', $password);
   	    $stmt->execute();
+		echo("1");
 		
 	}catch(PDOException $e){
 		echo '{"error": {"text": '.$e->getMessage().'}}';
