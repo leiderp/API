@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2018 a las 23:00:11
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 12-10-2018 a las 19:23:11
+-- Versión del servidor: 5.7.21
+-- Versión de PHP: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,8 +28,9 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `informacion`
 --
 
-CREATE TABLE `informacion` (
-  `HOTEL_NAME` varchar(44) DEFAULT NULL,
+DROP TABLE IF EXISTS `informacion`;
+CREATE TABLE IF NOT EXISTS `informacion` (
+  `HOTEL NAME` varchar(44) DEFAULT NULL,
   `ADDRESS` varchar(153) DEFAULT NULL,
   `STATE` varchar(16) DEFAULT NULL,
   `PHONE` varchar(24) DEFAULT NULL,
@@ -42,7 +45,7 @@ CREATE TABLE `informacion` (
 -- Volcado de datos para la tabla `informacion`
 --
 
-INSERT INTO `informacion` (`HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
+INSERT INTO `informacion` (`HOTEL NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
 ('Raheem Residency', '20/1100Beach Road, Alleppey West - 688 012, KERALA', 'KERALA', '0477-2230767', '0477-2239767', 'contact@raheemresidency.com', 'www.raheemresidency.com', 'Heritage Classic', 10),
 ('Noor Us Sabah Palace', 'V.I.P.RoadKoh-E-Fiza, Bhopal - 462001, MADHYA PRADESH', 'MADHYA PRADESH', '0755-4223333/4239996', '0755-4227777', 'contact@noorussabahpalace.com/reservations@nusp.in', 'www.noorussabahpalace.com', 'Heritage Classic', 57),
 ('The Panjim Inn ', '31-ST JANUARY ROAD, FONTAINHAS, PANAJI, Panaji , GOA', 'GOA', '4564277301', '4565273111', 'visalam@cghearth.com', 'www.cghearth.com', 'Heritage Basic', 15),
@@ -295,7 +298,7 @@ INSERT INTO `informacion` (`HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EM
 ('Excalibur Hotels & Resorts', 'Carithas Junction,MC Road,Thellakon, Kottayam, KERALA', 'KERALA', '4812791781', '4812711784', 'hotel.excalibur@gmail.com', 'www.excalibur.in', '4 Star', 20),
 ('Raj Residency', 'Near New bus standAlamipally, Kanhangad, KERALA', 'KERALA', '4672208444', '4672217294', 'rajgrouphotels@gmail.com', 'rajgrouphotels.com', '4 Star', 198),
 ('Muthoot Cardamom County Resort', 'Kumily (PO)Thekkady, Idukki (Dist.) - 685536, KERALA', 'KERALA', '04869-224501', '04869-222869/222807', 'reservations@muthoothotels.com', 'www.raxacollective.com', '4 Star', 44);
-INSERT INTO `informacion` (`HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
+INSERT INTO `informacion` (`HOTEL NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
 ('Hotel White Dammar International', 'Pappanamcode, Trivandrum - 695 018, KERALA', 'KERALA', '4712496601', '4712496602', 'whitedammar@gmail.com', 'hotelwhitedammar@gmail.com', '4 Star', 12),
 ('Hotel SP Grand Days', 'Panavila JnThycaud P.O., Thiruvananthapuram - 695014, KERALA', 'KERALA', '0471-2333344', '0471-2321000', 'mail@spgranddays.com', 'www.spgranddays.com', '4 Star', 69),
 ('Hotel Peninsula Park Residency', 'Motel and Resorts Pvt. Ltd.Parakode, Adoor, Pathanamthitta Dist., KERALA', 'KERALA', '4734243435', '4734243345', 'parkresidency.park@gmail.com', 'NA', '4 Star', 20),
@@ -330,12 +333,12 @@ INSERT INTO `informacion` (`HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EM
 ('Hotel Sagar Plaza', '1Bund Garden Road, Pune - 411001, MAHARASHTRA', 'MAHARASHTRA', '020-26205000', '020-26122633', 'reservations@hotelsagarplaza.com/info@hotelsagarplaza.com', 'www.hotelsagarplaza.com', '4 Star', 76),
 ('The Central Park Hotel', 'Bund Garden RoadNear Council Hall, Pune - 411 001, MAHARASHTRA', 'MAHARASHTRA', '022-66641000', '022-66641010', 'reservations@thecentralparkhotel.com', 'www.thecentralparkhotel.com', '4 Star', 74),
 ('Holiday Inn Mumbai International Airport', '721/1,721/A,721/B of Mohali VillageAndhri Kurla Road, Sakinaka junction, Mumbai, MAHARASHTRA', 'MAHARASHTRA', '2240851800', '2240851828', 'maltidutta50@yahoo.com', 'NA', '4 Star', 225),
-('The Emerald', '(Hotel & Executive Apartment)Mumbai Next to Juhu Tara Road, Opp. Hotel Sea Princess, B.R. Chopra''s Bungalow, Santacruz (West), Mumbai-400049, MAHARASHTRA', 'MAHARASHTRA', '022-67144000', '022-67144005', 'info@theemerald.com', 'www.theemerald.com', '4 Star', 56),
+('The Emerald', '(Hotel & Executive Apartment)Mumbai Next to Juhu Tara Road, Opp. Hotel Sea Princess, B.R. Chopra\'s Bungalow, Santacruz (West), Mumbai-400049, MAHARASHTRA', 'MAHARASHTRA', '022-67144000', '022-67144005', 'info@theemerald.com', 'www.theemerald.com', '4 Star', 56),
 ('Hotel Polo Tower', 'Oakland RoadPolo Grounds, Shillong - 793001, MEGHALAYA', 'MEGHALAYA', '0364-2222341-42', '0364-2220090', 'hptfo@rediffmail.com', 'www.hotelpolotowers.com', '4 Star', 50),
 ('M.K.HOTEL', 'DISTRICT SHOPPING CENTRE,RANJIT AVENUE, Amritsar, PUNJAB', 'PUNJAB', '1832504610', '1832507910', 'MKHOTEL123@SANCHARNET.IN', 'www.mkhotel.com', '4 Star', 75),
 ('THE MAYA HOTEL (Maya Inns Ltd.)', 'JALANDHAR CITYEH-178,CIVIL LINES,NEAR BMC CROSSIN, JALANDHAR CITY-144001, PUNJAB', 'PUNJAB', '0181 4688700/22', '1812452301', 'mayajal@mayahotels.in', 'http://www.mayahotels.in', '4 Star', 53),
 ('Hotel Ritz Plaza', '45The Mall, Amritsar - 143001, PUNJAB', 'PUNJAB', '0183-2562836-39', '0183-2226657', 'ritzhotel@vsnl.com/info@ritzhotel.in', 'www.titzhotel.in', '4 Star', 41),
-('Country In & Suites, Ajmer', 'Ansal''s Sushant City, Village Gegalkishangarh-Ajmer Road, Ajmer, RAJASTHAN', 'RAJASTHAN', '1456623456', '1456623466', 'maltidutta50@yahoo.com', 'NA', '4 Star', 71),
+('Country In & Suites, Ajmer', 'Ansal\'s Sushant City, Village Gegalkishangarh-Ajmer Road, Ajmer, RAJASTHAN', 'RAJASTHAN', '1456623456', '1456623466', 'maltidutta50@yahoo.com', 'NA', '4 Star', 71),
 ('The Royal Plaza', 'Shyari - GangtokEast sikkim, Gangtok -737102, SIKKIM', 'SIKKIM', '03592-280232', '03592-281112', 'trp@sarovarhotels.com', 'www.theroyalplazahotel.com', '4 Star', 58),
 ('The Residency Towers', 'Sir Thyagaraya RoadT. Nagar, Chennai - 600 017, TAMIL NADU', 'TAMIL NADU', '044-28156363', '044-28156969', 'restowers@vsnl.net', 'www.theresidency.com', '4 Star', 174),
 ('Hotel Sangam ', 'Collectors Office Road , Tiruchirapalli , TAMIL NADU', 'TAMIL NADU', '4312414700', '431241779', 'hotelsangam@vsnl.com', 'www.hotelsangam.com', '4 Star', 76),
@@ -352,14 +355,16 @@ INSERT INTO `informacion` (`HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EM
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `id` int(100) NOT NULL,
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `address` varchar(300) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -368,27 +373,10 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `name`, `last_name`, `address`, `email`, `password`) VALUES
 (1, 'Andres', 'Perez', 'Main Street 58', 'andres@mail.com', 'andresperez'),
 (2, 'John', 'Steinbeck', 'street 100', 'john@mail.com', 'johnsteinbeck'),
-(30, 'Carlos', 'Lopez', 'street 10', 'carlos@mail.com', 'carloslopez');
+(30, 'Carlos', 'Lopez', 'street 10', 'carlos@mail.com', 'carloslopez'),
+(31, 'cris', 'zapata', 'elbosque', 'cris@mail.com', 'cris07');
+COMMIT;
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -31,7 +31,7 @@
 			  }
 		  }
 	  }else{
-		  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE $atributo LIKE '%$nombre%'");
+		  $consulta = $db->prepare("SELECT * FROM `informacion` WHERE $atributo = $nombre");
 	  }
 	  $consulta->execute();
 	  $resultado = $consulta->fetchAll(PDO::FETCH_OBJ);
