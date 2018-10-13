@@ -1,20 +1,57 @@
 <?php
   require "vendor/autoload.php";
   require "Modelo/Conectar.php";
+  function llenar (){
+	  $j = 1;
+	  $db = Conectar::conexion();
+	  while($j <= 301){
+		  $sql = "SELECT * FROM `informacion` WHERE ID_HOTEL = '$j'";
+		  $stmt = $db->prepare($sql);
+		  $stmt->execute();
+		  $resultado = $stmt->fetchAll();
+	      $n = $resultado[0]['Rooms'];
+		  $sw = 0;
+		  if($sw == 0){
+			  $i = 1;
+			  while($i <= $n){
+				  $sql =  "INSERT INTO habitaciones (id_hotel) VALUES ($j)";
+				  $stmt = $db->prepare($sql);
+				  $stmt->execute();
+				  $i = $i + 1;
+			  }
+			  $sw = 1;
+	     }
+		  $j = $j + 1;
+	  }
+  }
 
   use \Psr\Http\Message\ServerRequestInterface as Request;
   use \Psr\Http\Message\ResponseInterface as Response;
   $app = new \Slim\App;
 
   $app->get('/', function () {
+	  
+  });
 
+$app->get('/disponibilidad/{dates}', function (Request $request, Response $response) {
+	$str = $request->getAttribute('dates');
+	$dates = explode("_", $str);
+	$db = Conectar::conexion();
+	$sql = "SELECT h.* FROM habitaciones h,(SELECT ID_ROOM FROM reservas WHERE (START_DATE >= '$dates[0]' AND START_DATE <= '$dates[1]') OR (FINISH_DATE >= '$dates[0]' AND FINISH_DATE <= '$dates[1]')) t WHERE t.ID_ROOM <> h.id_habitacion ";
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+	$resultado = $stmt->fetchAll();
+	echo(json_encode($resultado));
+	
+	
+	       
+	      
   });
 
   $app->get('/consultas/{atributo}/{nombre}', function (Request $request, Response $response) {
 	  $n = $request->getAttribute('nombre');
 	  $c = $request->getAttribute('atributo');
 	  $n = str_replace("_"," ","$n");
-	  echo($n);
 	  $db = Conectar::conexion();
 	  if($c == 'size'){
 		  if($n == 'small'){
