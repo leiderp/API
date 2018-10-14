@@ -148,6 +148,34 @@ $app->get('/reservacion/{infores}', function (Request $request, Response $respon
 	}
   });
 
+<<<<<<< HEAD
+$app->delete('/hotel/delete/{info}', function (Request $request, Response $response) {
+	$str = $request->getAttribute('info');
+	//$info = explode("_", $str);
+	$db = Conectar::conexion();
+	$sql = "DELETE FROM informacion WHERE ID_HOTEL = '$str'";
+	$stmt = $db->prepare($sql);
+    $stmt->execute();
+	
+	$sql = "SELECT h.id_hotel, r.ID_ROOM FROM reservas r, habitaciones h WHERE h.id_habitacion = r.ID_ROOM AND h.id_hotel = '$str'";
+	$stmt = $db->prepare($sql);
+    $stmt->execute();
+	$resultado = $stmt->fetchAll();
+	$items = $stmt->rowCount();
+	$i = 0;
+	while($i < $items){
+		$temp = $resultado[$i]['ID_ROOM'];
+		$sql = "DELETE FROM reservas WHERE reservas.ID_ROOM = '$temp'";
+		$stmt = $db->prepare($sql);
+        $stmt->execute();
+		$i = $i + 1;
+	}
+	
+	$sql = "DELETE FROM habitaciones WHERE id_hotel = '$str'";
+	$stmt = $db->prepare($sql);
+    $stmt->execute();
+	 });
+=======
   $app->post('/createkey', function (Request $request, Response $response) {
       $contact_name = $request->getParam('contact_name');
       $company = $request->getParam('company');
@@ -174,6 +202,7 @@ $app->get('/reservacion/{infores}', function (Request $request, Response $respon
 
     });
 
+>>>>>>> origin/master
   $app->run();
 
 ?>
