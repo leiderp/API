@@ -114,6 +114,39 @@ $app->put('/usuario/update/{id}', function (Request $request, Response $response
 	
   });
 
+$app->get('/reservacion/{infores}', function (Request $request, Response $response) {
+	
+	$str = $request->getAttribute('infores');
+	$infores = explode("_", $str);
+  	$db = Conectar::conexion();
+	
+	$sql = "SELECT h.* FROM (SELECT DISTINCT(id_habitacion), id_hotel FROM habitaciones WHERE id_habitacion NOT IN (SELECT ID_ROOM FROM reservas WHERE(START_DATE >= '$infores[2]' AND START_DATE <= '$infores[3]') OR (FINISH_DATE >= '$infores[2]' AND FINISH_DATE <= '$infores[3]'))) h WHERE '$infores[0]' = h.id_hotel";
+	
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+	$resultado = $stmt->fetchAll();
+	$items = $stmt->rowCount();
+	
+	if($infores[4] <= $items){
+		$i = 0;
+		while($i < $infores[4]){
+			$temp = $resultado[$i]['id_habitacion'];
+			$sql = "INSERT INTO reservas (ID_USUARIO, ID_ROOM, START_DATE, FINISH_DATE) VALUES
+            ('$infores[1]', '$temp', '$infores[2]', '$infores[3]')";
+			$stmt = $db->prepare($sql);
+			$stmt->execute();
+			$sql = "SELECT ID_RESERVA FROM reservas WHERE ID_ROOM = '$temp' AND START_DATE = '$infores[2]' AND FINISH_DATE = '$infores[3]'";
+			$stmt = $db->prepare($sql);
+			$stmt->execute();
+			$resultado2 = $stmt->fetchAll();
+			echo('El ID DE LA RESERVA '.($i + 1).' es: '.$resultado2[0]['ID_RESERVA']. "<br/>");
+			$i = $i + 1;
+		}
+	}else{
+		echo("no hay sufuciente disponibilidad en ese hotel");
+	}
+  });
+
   $app->run();
 
 ?>
