@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2018 a las 22:34:07
+-- Tiempo de generación: 14-10-2018 a las 23:31:40
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -39,7 +39,9 @@ CREATE TABLE `api_keys` (
 --
 
 INSERT INTO `api_keys` (`id_key`, `contact_name`, `company`, `email`, `api_key`) VALUES
-(1, '1', '', '', 'dfgdf4gfd46fg3dgf4g3dfg56f');
+(2, 'boss', 'multinational R', 'multi@mail.com', 'su7im9OumwN7Gr1M3gYAHPB7js'),
+(3, 'boss', 'multinational X', 'multi@mail.com', 'cMxcIvPKGovXOO1VkBmfX5X0U8'),
+(4, 'im the boss', 'multinational Y', 'multi@mail.com', 'UdKO4y7XnpjR5Dk7UyDO32axeq');
 
 -- --------------------------------------------------------
 
@@ -33253,7 +33255,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `name`, `last_name`, `address`, `email`, `password`) VALUES
 (1, 'Andres', 'Perez', 'Main Street 58', 'andres@mail.com', 'andresperez'),
 (2, 'John', 'Steinbeck', 'street 100', 'john@mail.com', 'johnsteinbeck'),
-(30, 'Carlos', 'Lopez', 'street 10', 'carlos@mail.com', 'carloslopez'),
+(30, 'pepito', 'el bandolero', 'rebolo st', 'pepito@email.com', 'pepitoelbandolero'),
 (31, 'cris', 'zapata', 'laluz', 'cris@mail.com', 'cris07');
 
 --
@@ -33292,7 +33294,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `api_keys`
 --
 ALTER TABLE `api_keys`
-  MODIFY `id_key` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_key` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `habitaciones`
 --
