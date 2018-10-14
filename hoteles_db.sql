@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2018 a las 21:28:40
+-- Tiempo de generación: 14-10-2018 a las 22:34:07
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -28,7 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `api_keys` (
   `id_key` int(11) NOT NULL,
-  `id_company` int(11) NOT NULL,
+  `contact_name` varchar(100) NOT NULL,
+  `company` varchar(100) NOT NULL,
+  `email` varchar(200) NOT NULL,
   `api_key` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -36,26 +38,8 @@ CREATE TABLE `api_keys` (
 -- Volcado de datos para la tabla `api_keys`
 --
 
-INSERT INTO `api_keys` (`id_key`, `id_company`, `api_key`) VALUES
-(1, 1, 'dfgdf4gfd46fg3dgf4g3dfg56f');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `companies`
---
-
-CREATE TABLE `companies` (
-  `id_company` int(11) NOT NULL,
-  `name` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `companies`
---
-
-INSERT INTO `companies` (`id_company`, `name`) VALUES
-(1, 'ezpedia');
+INSERT INTO `api_keys` (`id_key`, `contact_name`, `company`, `email`, `api_key`) VALUES
+(1, '1', '', '', 'dfgdf4gfd46fg3dgf4g3dfg56f');
 
 -- --------------------------------------------------------
 
@@ -33283,12 +33267,6 @@ ALTER TABLE `api_keys`
   ADD PRIMARY KEY (`id_key`);
 
 --
--- Indices de la tabla `companies`
---
-ALTER TABLE `companies`
-  ADD PRIMARY KEY (`id_company`);
-
---
 -- Indices de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
@@ -33315,11 +33293,6 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `api_keys`
   MODIFY `id_key` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `companies`
---
-ALTER TABLE `companies`
-  MODIFY `id_company` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `habitaciones`
 --
