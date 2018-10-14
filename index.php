@@ -148,7 +148,7 @@ $app->get('/reservacion/{infores}', function (Request $request, Response $respon
 	}
   });
 
-<<<<<<< HEAD
+
 $app->delete('/hotel/delete/{info}', function (Request $request, Response $response) {
 	$str = $request->getAttribute('info');
 	//$info = explode("_", $str);
@@ -175,7 +175,8 @@ $app->delete('/hotel/delete/{info}', function (Request $request, Response $respo
 	$stmt = $db->prepare($sql);
     $stmt->execute();
 	 });
-=======
+
+
   $app->post('/createkey', function (Request $request, Response $response) {
       $contact_name = $request->getParam('contact_name');
       $company = $request->getParam('company');
@@ -201,8 +202,6 @@ $app->delete('/hotel/delete/{info}', function (Request $request, Response $respo
       return json_encode($response);
 
     });
-
->>>>>>> origin/master
   $app->run();
 
 ?>
