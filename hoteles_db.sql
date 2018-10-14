@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 13-10-2018 a las 04:57:23
--- Versión del servidor: 5.7.21
--- Versión de PHP: 5.6.35
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-10-2018 a las 22:34:07
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -25,15 +23,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `api_keys`
+--
+
+CREATE TABLE `api_keys` (
+  `id_key` int(11) NOT NULL,
+  `contact_name` varchar(100) NOT NULL,
+  `company` varchar(100) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `api_key` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `api_keys`
+--
+
+INSERT INTO `api_keys` (`id_key`, `contact_name`, `company`, `email`, `api_key`) VALUES
+(1, '1', '', '', 'dfgdf4gfd46fg3dgf4g3dfg56f');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `habitaciones`
 --
 
-DROP TABLE IF EXISTS `habitaciones`;
-CREATE TABLE IF NOT EXISTS `habitaciones` (
-  `id_habitacion` int(11) NOT NULL AUTO_INCREMENT,
-  `id_hotel` int(11) NOT NULL,
-  PRIMARY KEY (`id_habitacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=34612 DEFAULT CHARSET=latin1;
+CREATE TABLE `habitaciones` (
+  `id_habitacion` int(11) NOT NULL,
+  `id_hotel` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `habitaciones`
@@ -32870,8 +32887,7 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 -- Estructura de tabla para la tabla `informacion`
 --
 
-DROP TABLE IF EXISTS `informacion`;
-CREATE TABLE IF NOT EXISTS `informacion` (
+CREATE TABLE `informacion` (
   `ID_HOTEL` int(3) DEFAULT NULL,
   `HOTEL_NAME` varchar(44) DEFAULT NULL,
   `ADDRESS` varchar(153) DEFAULT NULL,
@@ -33176,12 +33192,12 @@ INSERT INTO `informacion` (`ID_HOTEL`, `HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`
 (284, 'Hotel Sagar Plaza', '1Bund Garden Road, Pune - 411001, MAHARASHTRA', 'MAHARASHTRA', '020-26205000', '020-26122633', 'reservations@hotelsagarplaza.com/info@hotelsagarplaza.com', 'www.hotelsagarplaza.com', '4 Star', 76),
 (285, 'The Central Park Hotel', 'Bund Garden RoadNear Council Hall, Pune - 411 001, MAHARASHTRA', 'MAHARASHTRA', '022-66641000', '022-66641010', 'reservations@thecentralparkhotel.com', 'www.thecentralparkhotel.com', '4 Star', 74),
 (286, 'Holiday Inn Mumbai International Airport', '721/1,721/A,721/B of Mohali VillageAndhri Kurla Road, Sakinaka junction, Mumbai, MAHARASHTRA', 'MAHARASHTRA', '2240851800', '2240851828', 'maltidutta50@yahoo.com', 'NA', '4 Star', 225),
-(287, 'The Emerald', '(Hotel & Executive Apartment)Mumbai Next to Juhu Tara Road, Opp. Hotel Sea Princess, B.R. Chopra\'s Bungalow, Santacruz (West), Mumbai-400049, MAHARASHTRA', 'MAHARASHTRA', '022-67144000', '022-67144005', 'info@theemerald.com', 'www.theemerald.com', '4 Star', 56),
+(287, 'The Emerald', '(Hotel & Executive Apartment)Mumbai Next to Juhu Tara Road, Opp. Hotel Sea Princess, B.R. Chopra''s Bungalow, Santacruz (West), Mumbai-400049, MAHARASHTRA', 'MAHARASHTRA', '022-67144000', '022-67144005', 'info@theemerald.com', 'www.theemerald.com', '4 Star', 56),
 (288, 'Hotel Polo Tower', 'Oakland RoadPolo Grounds, Shillong - 793001, MEGHALAYA', 'MEGHALAYA', '0364-2222341-42', '0364-2220090', 'hptfo@rediffmail.com', 'www.hotelpolotowers.com', '4 Star', 50),
 (289, 'M.K.HOTEL', 'DISTRICT SHOPPING CENTRE,RANJIT AVENUE, Amritsar, PUNJAB', 'PUNJAB', '1832504610', '1832507910', 'MKHOTEL123@SANCHARNET.IN', 'www.mkhotel.com', '4 Star', 75),
 (290, 'THE MAYA HOTEL (Maya Inns Ltd.)', 'JALANDHAR CITYEH-178,CIVIL LINES,NEAR BMC CROSSIN, JALANDHAR CITY-144001, PUNJAB', 'PUNJAB', '0181 4688700/22', '1812452301', 'mayajal@mayahotels.in', 'http://www.mayahotels.in', '4 Star', 53),
 (291, 'Hotel Ritz Plaza', '45The Mall, Amritsar - 143001, PUNJAB', 'PUNJAB', '0183-2562836-39', '0183-2226657', 'ritzhotel@vsnl.com/info@ritzhotel.in', 'www.titzhotel.in', '4 Star', 41),
-(292, 'Country In & Suites, Ajmer', 'Ansal\'s Sushant City, Village Gegalkishangarh-Ajmer Road, Ajmer, RAJASTHAN', 'RAJASTHAN', '1456623456', '1456623466', 'maltidutta50@yahoo.com', 'NA', '4 Star', 71),
+(292, 'Country In & Suites, Ajmer', 'Ansal''s Sushant City, Village Gegalkishangarh-Ajmer Road, Ajmer, RAJASTHAN', 'RAJASTHAN', '1456623456', '1456623466', 'maltidutta50@yahoo.com', 'NA', '4 Star', 71),
 (293, 'The Royal Plaza', 'Shyari - GangtokEast sikkim, Gangtok -737102, SIKKIM', 'SIKKIM', '03592-280232', '03592-281112', 'trp@sarovarhotels.com', 'www.theroyalplazahotel.com', '4 Star', 58),
 (294, 'The Residency Towers', 'Sir Thyagaraya RoadT. Nagar, Chennai - 600 017, TAMIL NADU', 'TAMIL NADU', '044-28156363', '044-28156969', 'restowers@vsnl.net', 'www.theresidency.com', '4 Star', 174),
 (295, 'Hotel Sangam ', 'Collectors Office Road , Tiruchirapalli , TAMIL NADU', 'TAMIL NADU', '4312414700', '431241779', 'hotelsangam@vsnl.com', 'www.hotelsangam.com', '4 Star', 76),
@@ -33198,15 +33214,13 @@ INSERT INTO `informacion` (`ID_HOTEL`, `HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`
 -- Estructura de tabla para la tabla `reservas`
 --
 
-DROP TABLE IF EXISTS `reservas`;
-CREATE TABLE IF NOT EXISTS `reservas` (
-  `ID_RESERVA` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reservas` (
+  `ID_RESERVA` int(11) NOT NULL,
   `ID_USUARIO` int(11) NOT NULL,
   `ID_ROOM` int(11) NOT NULL,
   `START_DATE` datetime NOT NULL,
-  `FINISH_DATE` datetime NOT NULL,
-  PRIMARY KEY (`ID_RESERVA`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `FINISH_DATE` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `reservas`
@@ -33223,16 +33237,14 @@ INSERT INTO `reservas` (`ID_RESERVA`, `ID_USUARIO`, `ID_ROOM`, `START_DATE`, `FI
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(100) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuarios` (
+  `id` int(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `address` varchar(300) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -33243,8 +33255,59 @@ INSERT INTO `usuarios` (`id`, `name`, `last_name`, `address`, `email`, `password
 (2, 'John', 'Steinbeck', 'street 100', 'john@mail.com', 'johnsteinbeck'),
 (30, 'Carlos', 'Lopez', 'street 10', 'carlos@mail.com', 'carloslopez'),
 (31, 'cris', 'zapata', 'laluz', 'cris@mail.com', 'cris07');
-COMMIT;
 
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `api_keys`
+--
+ALTER TABLE `api_keys`
+  ADD PRIMARY KEY (`id_key`);
+
+--
+-- Indices de la tabla `habitaciones`
+--
+ALTER TABLE `habitaciones`
+  ADD PRIMARY KEY (`id_habitacion`);
+
+--
+-- Indices de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`ID_RESERVA`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `api_keys`
+--
+ALTER TABLE `api_keys`
+  MODIFY `id_key` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `habitaciones`
+--
+ALTER TABLE `habitaciones`
+  MODIFY `id_habitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34612;
+--
+-- AUTO_INCREMENT de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `ID_RESERVA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
