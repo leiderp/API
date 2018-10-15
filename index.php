@@ -150,29 +150,50 @@ $app->get('/reservacion/{infores}', function (Request $request, Response $respon
 
 $app->delete('/hotel/delete/{info}', function (Request $request, Response $response) {
 	$str = $request->getAttribute('info');
-	//$info = explode("_", $str);
+	$key = $request->getParam('key');
+
 	$db = Conectar::conexion();
-	$sql = "DELETE FROM informacion WHERE ID_HOTEL = '$str'";
-	$stmt = $db->prepare($sql);
-    $stmt->execute();
 
-	$sql = "SELECT h.id_hotel, r.ID_ROOM FROM reservas r, habitaciones h WHERE h.id_habitacion = r.ID_ROOM AND h.id_hotel = '$str'";
-	$stmt = $db->prepare($sql);
-    $stmt->execute();
-	$resultado = $stmt->fetchAll();
-	$items = $stmt->rowCount();
-	$i = 0;
-	while($i < $items){
-		$temp = $resultado[$i]['ID_ROOM'];
-		$sql = "DELETE FROM reservas WHERE reservas.ID_ROOM = '$temp'";
-		$stmt = $db->prepare($sql);
+  $sql = "SELECT id_key from api_keys where api_key ='$key'";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  $items = $stmt->rowCount();
+  if ($items == 0) {
+    return "{'message':'No API key found in request'}";
+  }else if($items == 1){
+  /*###############################################*/
+        $sql = "SELECT HOTEL_NAME FROM informacion WHERE ID_HOTEL = '$str'";
+        $stmt = $db->prepare($sql);
         $stmt->execute();
-		$i = $i + 1;
-	}
+        $items = $stmt->rowCount();
+        if ($items == 0) {
+          return "{'message':'Hotel no existe'}";
+        }else{
+          	$sql = "DELETE FROM informacion WHERE ID_HOTEL = '$str'";
+          	$stmt = $db->prepare($sql);
+            $stmt->execute();
 
-	$sql = "DELETE FROM habitaciones WHERE id_hotel = '$str'";
-	$stmt = $db->prepare($sql);
-    $stmt->execute();
+          	$sql = "SELECT h.id_hotel, r.ID_ROOM FROM reservas r, habitaciones h WHERE h.id_habitacion = r.ID_ROOM AND h.id_hotel = '$str'";
+          	$stmt = $db->prepare($sql);
+              $stmt->execute();
+          	$resultado = $stmt->fetchAll();
+          	$items = $stmt->rowCount();
+          	$i = 0;
+          	while($i < $items){
+          		$temp = $resultado[$i]['ID_ROOM'];
+          		$sql = "DELETE FROM reservas WHERE reservas.ID_ROOM = '$temp'";
+          		$stmt = $db->prepare($sql);
+                  $stmt->execute();
+          		$i = $i + 1;
+          	}
+
+          	$sql = "DELETE FROM habitaciones WHERE id_hotel = '$str'";
+          	$stmt = $db->prepare($sql);
+            $stmt->execute();
+            return "{'message':'Hotel borrado'}";
+          }
+      }
+      return "{'message':'que pasa brother'}";
 	 });
 
   $app->post('/createkey', function (Request $request, Response $response) {
