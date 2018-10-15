@@ -288,6 +288,95 @@ $app->post('/hotel/add', function (Request $request, Response $response) {
   });
 
 
+//###########################################
+  //hotel type, number of rooms, phone number, website, and contact email.
+$app->put('/hotel/update/{id}', function (Request $request, Response $response) {
+  $id = $request->getAttribute('id');
+  $key = $request->getParam('key');
+  //cambios
+  $email = $request->getParam('email');
+  $website = $request->getParam('website');
+  $type = $request->getParam('type');
+  $phone = $request->getParam('phone');
+  //no cambian
+  $name = "";
+  $address = "";
+  $state = "";
+  $rooms = "";
+  $fax = "";
+  if($email != "" && $website != ""  && $type != "" && $phone != ""){
+
+      $db = Conectar::conexion();
+
+      $sql = "SELECT id_key from api_keys where api_key ='$key'";
+      $stmt = $db->prepare($sql);
+      $stmt->execute();
+      $items = $stmt->rowCount();
+      if ($items == 0) {
+        return "{'message':'No API key found in request'}";
+      }else{
+
+        $sql = "SELECT HOTEL_NAME, ADDRESS, STATE, FAX, Rooms from informacion where ID_HOTEL ='$id'";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $items = $stmt->rowCount();
+        $resultado = $stmt->fetchAll();
+        if ($items == 0) {
+          return "{'message':'No existe el hotel'}";
+        }else{
+          $name = $resultado[0]['HOTEL_NAME'];
+          $address = $resultado[0]['ADDRESS'];
+          $state = $resultado[0]['STATE'];
+          $fax = $resultado[0]['FAX'];
+          $rooms = $resultado[0]['Rooms'];
+
+          $sql = "UPDATE informacion SET
+                ID_HOTEL = :id,
+                HOTEL_NAME = :name,
+                ADDRESS = :address,
+                STATE = :state,
+                PHONE = :phone,
+                FAX = :fax,
+                EMAIL_ID = :email,
+                WEBSITE = :website,
+                TYPE = :type,
+                Rooms = :rooms
+              WHERE ID_HOTEL = $id";
+          try{
+            $stmt = $db->prepare($sql);
+            $stmt-> bindParam(':id', $id);
+            $stmt-> bindParam(':name', $name);
+            $stmt-> bindParam(':address', $address);
+            $stmt-> bindParam(':state', $state);
+            $stmt-> bindParam(':phone', $phone);
+            $stmt-> bindParam(':fax', $fax);
+            $stmt-> bindParam(':email', $email);
+            $stmt-> bindParam(':website', $website);
+            $stmt-> bindParam(':type', $type);
+            $stmt-> bindParam(':rooms', $rooms);
+            $stmt->execute();
+            echo("1");
+          }catch(PDOException $e){
+            echo '{"error": {"text": '.$e->getMessage().'}}';
+          }
+
+        }
+      }
+
+    }else {
+      return "{message:Parametros requeridos incompletos}";
+    }
+
+
+
+  });
+
+
+
+
+
+
+
   $app->run();
 
 ?>
