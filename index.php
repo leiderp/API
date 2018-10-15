@@ -8,7 +8,7 @@
   $app = new \Slim\App;
 
   $app->get('/', function () {
-
+      include 'index.html';
   });
 
 $app->get('/disponibilidad/{dates}', function (Request $request, Response $response) {
