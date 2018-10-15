@@ -288,9 +288,6 @@ $app->post('/hotel/add', function (Request $request, Response $response) {
   });
 
 
-
-
-
   $app->run();
 
 ?>
