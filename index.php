@@ -148,10 +148,6 @@ $app->get('/reservacion/{infores}', function (Request $request, Response $respon
 	}
   });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 $app->delete('/hotel/delete/{info}', function (Request $request, Response $response) {
 	$str = $request->getAttribute('info');
 	$key = $request->getParam('key');
@@ -200,10 +196,10 @@ $app->delete('/hotel/delete/{info}', function (Request $request, Response $respo
       return "{'message':'que pasa brother'}";
 	 });
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
+
+
+
   $app->post('/createkey', function (Request $request, Response $response) {
       $contact_name = $request->getParam('contact_name');
       $company = $request->getParam('company');
@@ -229,10 +225,7 @@ $app->delete('/hotel/delete/{info}', function (Request $request, Response $respo
       return json_encode($response);
 
     });
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
   $app->run();
 
 ?>
