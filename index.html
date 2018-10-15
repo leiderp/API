@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<link rel="stylesheet" type="text/css" href="Modelo/style.css">
+	<title>API Documentation</title>
+</head>
+<body>
+	<div id="Titulo"><b><h1>API Documentation (Examples):</h1></b></div>
+	<div id="Documentacion">
+		<h2>Search by several criteria: </h2>
+		<p>Using the following structure: </p>
+		<pre id="ejemplo">/consultas/[Criteria]/[Name, state, hotel type or size]</pre>
+		<h3>By hotel name:</h3>
+		<p>Sample URL:</p>
+		<a id="links" href="http://localhost/API/consultas/hotel_name/ITC%20HOTEL%20KAKATIYA">http://localhost/API/consultas/hotel_name/ITC%20HOTEL%20KAKATIYA</a>
+		<h3>By state:</h3>
+		<p>Sample URL:</p>
+		<a id="links" href="http://localhost/API/consultas/state/KERALA">http://localhost/API/consultas/state/KERALA</a>
+		<h3>By hotel type:</h3>
+		<p>Sample URL:</p>
+		<a id="links" href="http://localhost/API/consultas/type/5%20star%20deluxe">http://localhost/API/consultas/type/5%20star%20deluxe</a>
+		<h3>By hotel size (# of rooms):</h3>
+		<p>Sample URL:</p>
+		<a id="links" href="http://localhost/API/consultas/size/large">http://localhost/API/consultas/size/large</a>
+
+		<h2>Check for hotel availability: </h2>
+		<p>Using the following structure: </p>
+		<pre id="ejemplo">/disponibilidad/[Start Date (YYYY/MM/DD)]/[End Date (YYYY/MM/DD)]/[State]</pre>
+		<p>Sample URL:</p>
+		<a id="links" href="http://localhost/API/disponibilidad/2018-11-24_2018-11-27_KERALA">http://localhost/API/disponibilidad/2018-11-24_2018-11-27_KERALA</a>
+
+		<h2>Make a reservation for an hotel (could be more than one): </h2>
+		<p>Using the following structure: </p>
+		<pre id="ejemplo">/reservacion/[Hotel ID]/[User ID]/[Start Date (YYYY/MM/DD)]/[End Date (YYYY/MM/DD)]/[# of reservations]</pre>
+		<p>Sample URL:</p>
+		<a id="links" href="http://localhost/API/reservacion/1_2_2018-11-24_2018-11-27_1">http://localhost/API/reservacion/1_2_2018-11-24_2018-11-27_1</a>
+
+
+		<h1>Using an API testing tool, for example <a id="postman" href="https://www.getpostman.com/">Postman</a>:</h2>
+		<h2>Create a new user: </h2>
+		<p id="postt">Select <pre id="post">POST</pre> in Postman and then write the URL following this structure: </p>
+		<pre id="ejemplo">/usuario/[User ID]</pre>
+		<p>Sample URL:</p>
+		<p id="ejemplo">http://localhost/API/usuario/add</p>
+		<p>And then add the different variables to be used: </p>
+		<ul>
+			<li>name: <p style="display: inline; color: black">User's first name</p></li>
+			<li>last_name: <p style="display: inline; color: black">User's last name</p></li>
+			<li>address: <p style="display: inline; color: black">User's address</p></li>
+			<li>email: <p style="display: inline; color: black">User's email</p></li>
+			<li>password. <p style="display: inline; color: black">User's account password</p></li>
+
+		</ul>
+
+		<h2>Update user's data: </h2>
+		<p id="postt">Select <pre id="post">PUT</pre> in Postman and then write the URL following this structure: </p>
+		<pre id="ejemplo">/usuario/[User ID]</pre>
+		<p>Sample URL:</p>
+		<p id="ejemplo" href="">http://localhost/API/usuario/update/1</p>
+		<p>And then add the different variables to be used: </p>
+		<ul>
+			<li>id: <p style="display: inline; color: black">User ID</p></li>
+			<li>name: <p style="display: inline; color: black">User's first name</p></li>
+			<li>last_name: <p style="display: inline; color: black">User's last name</p></li>
+			<li>address: <p style="display: inline; color: black">User's address</p></li>
+			<li>email: <p style="display: inline; color: black">User's email</p></li>
+			<li>password. <p style="display: inline; color: black">User's account password</p></li>
+		</ul>
+
+		<h2>Create a new API key: </h2>
+		<p id="postt">Select <pre id="post">PUT</pre> in Postman and then write the URL following this structure: </p>
+		<pre id="ejemplo">/createkey</pre>
+		<p>Sample URL:</p>
+		<p id="ejemplo">http://localhost/API/createkey</p>
+		<p>And then add the different variables to be used: </p>
+		<ul>
+			<li>contact_name: <p style="display: inline; color: black">Company's contact name</p></li>
+			<li>company: <p style="display: inline; color: black">Company's name</p></li>
+			<li>email: <p style="display: inline; color: black">Company's email</p></li>
+		</ul>
+
+		<h2>Post a new hotel: </h2>
+		<p id="postt">Select <pre id="post">POST</pre> in Postman and then write the URL following this structure: </p>
+		<pre id="ejemplo">/hotel/add</pre>
+		<p>Sample URL:</p>
+		<p id="ejemplo">http://localhost/API/hotel/add</p>
+		<p>And then add the different variables to be used: </p>
+		<ul>
+			<li>name: <p style="display: inline; color: black">Hotel's name</p></li>
+			<li>address: <p style="display: inline; color: black">Hotel's address</p></li>
+			<li>state: <p style="display: inline; color: black">State where the hotel is placed</p></li>
+			<li>phone: <p style="display: inline; color: black">Hotel's phone number</p></li>
+			<li>fax: <p style="display: inline; color: black">Hotel's fax number</p></li>
+			<li>email: <p style="display: inline; color: black">Hotel's email</p></li>
+			<li>website: <p style="display: inline; color: black">Hotel's website link</p></li>
+			<li>type: <p style="display: inline; color: black">Hotel type</p></li>
+			<li>rooms: <p style="display: inline; color: black">Number of rooms</p></li>
+		</ul>
+<!--><!-->
+		<h2>Update hotel's data: </h2>
+		<p id="postt">Select <pre id="post">PUT</pre> in Postman and then write the URL following this structure: </p>
+		<pre id="ejemplo">/sa</pre>
+		<p>Sample URL:</p>
+		<p id="ejemplo">http://localhost/API/</p>
+		<p>And then add the different variables to be used: </p>
+		<ul>
+			<li>type: <p style="display: inline; color: black">Hotel type</p></li>
+			<li>rooms: <p style="display: inline; color: black">Number of rooms</p></li>
+			<li>phone: <p style="display: inline; color: black">Hotel's phone number</p></li>
+			<li>website: <p style="display: inline; color: black">Hotel's website link</p></li>
+			<li>email: <p style="display: inline; color: black">Hotel's email</p></li>
+		</ul>
+<!--><!-->
+		<h2>Delete a hotel: </h2>
+		<p id="postt">Select <pre id="post">DELETE</pre> in Postman and then write the URL following this structure: </p>
+		<pre id="ejemplo">/hotel/delete/[Hotel ID]</pre>
+		<p>Sample URL:</p>
+		<p id="ejemplo">http://localhost/API/hotel/delete/1</p>
+		<p>And then add the different variables to be used: </p>
+		<ul>
+			<li>API key: <p style="display: inline; color: black">Available API key</p></li>
+	</div>
+</body>
+</html>

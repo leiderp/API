@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2018 a las 04:38:12
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Tiempo de generación: 15-10-2018 a las 03:00:42
+-- Versión del servidor: 5.7.14
+-- Versión de PHP: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -41,9 +41,7 @@ CREATE TABLE `api_keys` (
 INSERT INTO `api_keys` (`id_key`, `contact_name`, `company`, `email`, `api_key`) VALUES
 (2, 'boss', 'multinational R', 'multi@mail.com', 'su7im9OumwN7Gr1M3gYAHPB7js'),
 (3, 'boss', 'multinational X', 'multi@mail.com', 'cMxcIvPKGovXOO1VkBmfX5X0U8'),
-(4, 'im the boss', 'multinational Y', 'multi@mail.com', 'UdKO4y7XnpjR5Dk7UyDO32axeq'),
-(5, 'boss3', 'multinational RY', 'multin@mail.com', 'lKUIHrOZ0NzpZbG6Qr6DkUj6Cq'),
-(6, 'boss4', 'multinational RZ', 'multi@mail.com', 'I6JhpB6O7hxFQKL91518DUZWaj');
+(4, 'im the boss', 'multinational Y', 'multi@mail.com', 'UdKO4y7XnpjR5Dk7UyDO32axeq');
 
 -- --------------------------------------------------------
 
@@ -61,6 +59,16 @@ CREATE TABLE `habitaciones` (
 --
 
 INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
+(1796, 1),
+(1797, 1),
+(1798, 1),
+(1799, 1),
+(1800, 1),
+(1801, 1),
+(1802, 1),
+(1803, 1),
+(1804, 1),
+(1805, 1),
 (1806, 2),
 (1807, 2),
 (1808, 2),
@@ -133,6 +141,56 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (1875, 3),
 (1876, 3),
 (1877, 3),
+(1878, 4),
+(1879, 4),
+(1880, 4),
+(1881, 4),
+(1882, 4),
+(1883, 4),
+(1884, 4),
+(1885, 4),
+(1886, 4),
+(1887, 4),
+(1888, 4),
+(1889, 4),
+(1890, 4),
+(1891, 4),
+(1892, 4),
+(1893, 4),
+(1894, 4),
+(1895, 4),
+(1896, 4),
+(1897, 4),
+(1898, 4),
+(1899, 4),
+(1900, 5),
+(1901, 5),
+(1902, 5),
+(1903, 5),
+(1904, 5),
+(1905, 5),
+(1906, 5),
+(1907, 5),
+(1908, 5),
+(1909, 5),
+(1910, 5),
+(1911, 5),
+(1912, 5),
+(1913, 5),
+(1914, 5),
+(1915, 5),
+(1916, 5),
+(1917, 5),
+(1918, 5),
+(1919, 5),
+(1920, 5),
+(1921, 5),
+(1922, 5),
+(1923, 5),
+(1924, 5),
+(1925, 5),
+(1926, 5),
+(1927, 5),
 (1928, 6),
 (1929, 6),
 (1930, 6),
@@ -5013,7 +5071,8 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (6805, 65),
 (6806, 65),
 (6807, 65),
-(6808, 65),
+(6808, 65);
+INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (6809, 65),
 (6810, 65),
 (6811, 65),
@@ -5067,8 +5126,7 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (6859, 65),
 (6860, 65),
 (6861, 65),
-(6862, 65);
-INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
+(6862, 65),
 (6863, 65),
 (6864, 65),
 (6865, 65),
@@ -9843,7 +9901,8 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (11634, 96),
 (11635, 96),
 (11636, 96),
-(11637, 96),
+(11637, 96);
+INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (11638, 96),
 (11639, 96),
 (11640, 96),
@@ -9892,8 +9951,7 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (11683, 96),
 (11684, 96),
 (11685, 96),
-(11686, 96);
-INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
+(11686, 96),
 (11687, 96),
 (11688, 96),
 (11689, 96),
@@ -14031,7 +14089,8 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (15821, 114),
 (15822, 114),
 (15823, 114),
-(15824, 114),
+(15824, 114);
+INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (15825, 114),
 (15826, 114),
 (15827, 114),
@@ -14076,8 +14135,7 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (15866, 114),
 (15867, 114),
 (15868, 114),
-(15869, 114);
-INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
+(15869, 114),
 (15870, 114),
 (15871, 114),
 (15872, 114),
@@ -18193,7 +18251,8 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (19982, 140),
 (19983, 140),
 (19984, 140),
-(19985, 140),
+(19985, 140);
+INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (19986, 140),
 (19987, 140),
 (19988, 140),
@@ -18238,8 +18297,7 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (20027, 140),
 (20028, 140),
 (20029, 140),
-(20030, 140);
-INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
+(20030, 140),
 (20031, 140),
 (20032, 140),
 (20033, 140),
@@ -22355,7 +22413,8 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (24143, 179),
 (24144, 179),
 (24145, 179),
-(24146, 179),
+(24146, 179);
+INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (24147, 179),
 (24148, 179),
 (24149, 179),
@@ -22400,8 +22459,7 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (24188, 179),
 (24189, 179),
 (24190, 179),
-(24191, 179);
-INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
+(24191, 179),
 (24192, 179),
 (24193, 179),
 (24194, 179),
@@ -26517,7 +26575,8 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (28304, 215),
 (28305, 215),
 (28306, 215),
-(28307, 215),
+(28307, 215);
+INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (28308, 215),
 (28309, 215),
 (28310, 215),
@@ -26562,8 +26621,7 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (28349, 216),
 (28350, 216),
 (28351, 216),
-(28352, 216);
-INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
+(28352, 216),
 (28353, 216),
 (28354, 216),
 (28355, 217),
@@ -30679,7 +30737,8 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (32465, 280),
 (32466, 280),
 (32467, 280),
-(32468, 280),
+(32468, 280);
+INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (32469, 280),
 (32470, 280),
 (32471, 280),
@@ -30724,8 +30783,7 @@ INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
 (32510, 280),
 (32511, 280),
 (32512, 280),
-(32513, 280);
-INSERT INTO `habitaciones` (`id_habitacion`, `id_hotel`) VALUES
+(32513, 280),
 (32514, 280),
 (32515, 280),
 (32516, 280),
@@ -32849,8 +32907,11 @@ CREATE TABLE `informacion` (
 --
 
 INSERT INTO `informacion` (`ID_HOTEL`, `HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL_ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
+(1, 'Raheem Residency', '20/1100Beach Road, Alleppey West - 688 012, KERALA', 'KERALA', '0477-2230767', '0477-2239767', 'contact@raheemresidency.com', 'www.raheemresidency.com', 'Heritage Classic', 10),
 (2, 'Noor Us Sabah Palace', 'V.I.P.RoadKoh-E-Fiza, Bhopal - 462001, MADHYA PRADESH', 'MADHYA PRADESH', '0755-4223333/4239996', '0755-4227777', 'contact@noorussabahpalace.com/reservations@nusp.in', 'www.noorussabahpalace.com', 'Heritage Classic', 57),
 (3, 'The Panjim Inn ', '31-ST JANUARY ROAD, FONTAINHAS, PANAJI, Panaji , GOA', 'GOA', '4564277301', '4565273111', 'visalam@cghearth.com', 'www.cghearth.com', 'Heritage Basic', 15),
+(4, 'Balaram Palace Resort', 'Chitrassani Village,off Abu Palanpur Highway No.14 Banaskantha, BANASKANTHA, GUJARAT', 'GUJARAT', '07926575286, 2657638', '7926578412', 'balarampalaceresort@gmail.com', 'NA', 'Heritage Basic', 22),
+(5, 'Nilambag Palace Hotel', 'Bhavnagar, Bhavnagar, GUJARAT', 'GUJARAT', '02782424241, 2429323', '2782428072', 'reservation@nilambagpalace.com', 'NA', 'Heritage Basic', 28),
 (6, 'The Fort Ramgarh', 'Ramgarh, Panchkula On NH - 73 Delhi Shimla Highway, Near Chandigarh, Panchkula Distt., HARYANA', 'HARYANA', '01733253072-75, 9814', 'NA', 'thefortramgarh@gmail.com', 'NA', 'Heritage Basic', 12),
 (7, 'The Judges Court', 'Heritage VillageParagpur, Distt. - Kangra - 177107, HIMACHAL PRADESH', 'HIMACHAL PRADESH', '01970-245035/245335', '01970-245823', 'eries@vsnl.com/info@judgescourt.com', 'www.judgescourt.com', 'Heritage Basic', 10),
 (8, 'The Palace', 'Chail, Solan,HIMACHAL PRADESH', 'HIMACHAL PRADESH', '1772652704', '1772652206', 'maltidutta50@yahoo.com', 'NA', 'Heritage Basic', 31),
@@ -33091,11 +33152,11 @@ INSERT INTO `informacion` (`ID_HOTEL`, `HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`
 (243, 'Hotel Presidency', 'Paramara Road Ernakulam Town, Kochi, KERALA', 'KERALA', '4842394300', '4842393222', 'presid@vsnl.com', 'NA', '4 Star', 49),
 (244, 'Hotel Raj Regency', 'Chelakkara road,Pazhayannur, Thrissur, KERALA', 'KERALA', '4884226877', '4884666977', 'rajregencypnr@gmail.com', 'NA', '4 Star', 10),
 (245, 'ATS Residency', 'Yakkara Branch RoadNear D.P Office, Palakkad, KERALA', 'KERALA', '4912537477', '4912523182', 'info@atshotels.com', 'atsresidency.com', '4 Star', 20),
-(246, 'The Royale Gardens', 'Nangiarkulangara P.O.Haripad - Alleppey District, Kerala - 690513, KERALA', 'KERALA', '0479-2404000', '0479-2404999', 'info@theroyalegardens.com', 'www.theroyalegardens.com', '4 Star', 34),
+(246, 'The Royale Gardens', 'Nangiarkulangara P.O.Haripad - Alleppey District, Kerala - 690513, KERALA', 'KERALA', '0479-2404000', '0479-2404999', 'info@theroyalegardens.com', 'www.theroyalegardens.com', '4 Star', 34);
+INSERT INTO `informacion` (`ID_HOTEL`, `HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL_ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
 (247, 'Hotel Srivatsa Regency', 'Pittupeedika, Main Road,Koduvayur, Palakkad, KERALA', 'KERALA', '4923251119', '4923254119', 'hotelsrivatsaregency@gmail.com', 'www.hotelsrivatsaregency.com', '4 Star', 12),
 (248, 'Hotel Hills Park', 'Kumbazha Road,Pathanamthitta,District, Kerala, KERALA', 'KERALA', '4682226262', 'NA', 'hotelhillspark@gmail.com', 'NA', '4 Star', 15),
-(249, 'Neelamabari Suite', 'Villanchira,Thalakkodu P.O.Neriyamangalam, Ernakulam, KERALA', 'KERALA', '4852555123', '4852555133', 'infor@neelabarisuite.com', 'neelabarisuite.com', '4 Star', 22);
-INSERT INTO `informacion` (`ID_HOTEL`, `HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`, `FAX`, `EMAIL_ID`, `WEBSITE`, `TYPE`, `Rooms`) VALUES
+(249, 'Neelamabari Suite', 'Villanchira,Thalakkodu P.O.Neriyamangalam, Ernakulam, KERALA', 'KERALA', '4852555123', '4852555133', 'infor@neelabarisuite.com', 'neelabarisuite.com', '4 Star', 22),
 (250, 'Excalibur Hotels & Resorts', 'Carithas Junction,MC Road,Thellakon, Kottayam, KERALA', 'KERALA', '4812791781', '4812711784', 'hotel.excalibur@gmail.com', 'www.excalibur.in', '4 Star', 20),
 (251, 'Raj Residency', 'Near New bus standAlamipally, Kanhangad, KERALA', 'KERALA', '4672208444', '4672217294', 'rajgrouphotels@gmail.com', 'rajgrouphotels.com', '4 Star', 198),
 (252, 'Muthoot Cardamom County Resort', 'Kumily (PO)Thekkady, Idukki (Dist.) - 685536, KERALA', 'KERALA', '04869-224501', '04869-222869/222807', 'reservations@muthoothotels.com', 'www.raxacollective.com', '4 Star', 44),
@@ -33133,12 +33194,12 @@ INSERT INTO `informacion` (`ID_HOTEL`, `HOTEL_NAME`, `ADDRESS`, `STATE`, `PHONE`
 (284, 'Hotel Sagar Plaza', '1Bund Garden Road, Pune - 411001, MAHARASHTRA', 'MAHARASHTRA', '020-26205000', '020-26122633', 'reservations@hotelsagarplaza.com/info@hotelsagarplaza.com', 'www.hotelsagarplaza.com', '4 Star', 76),
 (285, 'The Central Park Hotel', 'Bund Garden RoadNear Council Hall, Pune - 411 001, MAHARASHTRA', 'MAHARASHTRA', '022-66641000', '022-66641010', 'reservations@thecentralparkhotel.com', 'www.thecentralparkhotel.com', '4 Star', 74),
 (286, 'Holiday Inn Mumbai International Airport', '721/1,721/A,721/B of Mohali VillageAndhri Kurla Road, Sakinaka junction, Mumbai, MAHARASHTRA', 'MAHARASHTRA', '2240851800', '2240851828', 'maltidutta50@yahoo.com', 'NA', '4 Star', 225),
-(287, 'The Emerald', '(Hotel & Executive Apartment)Mumbai Next to Juhu Tara Road, Opp. Hotel Sea Princess, B.R. Chopra''s Bungalow, Santacruz (West), Mumbai-400049, MAHARASHTRA', 'MAHARASHTRA', '022-67144000', '022-67144005', 'info@theemerald.com', 'www.theemerald.com', '4 Star', 56),
+(287, 'The Emerald', '(Hotel & Executive Apartment)Mumbai Next to Juhu Tara Road, Opp. Hotel Sea Princess, B.R. Chopra\'s Bungalow, Santacruz (West), Mumbai-400049, MAHARASHTRA', 'MAHARASHTRA', '022-67144000', '022-67144005', 'info@theemerald.com', 'www.theemerald.com', '4 Star', 56),
 (288, 'Hotel Polo Tower', 'Oakland RoadPolo Grounds, Shillong - 793001, MEGHALAYA', 'MEGHALAYA', '0364-2222341-42', '0364-2220090', 'hptfo@rediffmail.com', 'www.hotelpolotowers.com', '4 Star', 50),
 (289, 'M.K.HOTEL', 'DISTRICT SHOPPING CENTRE,RANJIT AVENUE, Amritsar, PUNJAB', 'PUNJAB', '1832504610', '1832507910', 'MKHOTEL123@SANCHARNET.IN', 'www.mkhotel.com', '4 Star', 75),
 (290, 'THE MAYA HOTEL (Maya Inns Ltd.)', 'JALANDHAR CITYEH-178,CIVIL LINES,NEAR BMC CROSSIN, JALANDHAR CITY-144001, PUNJAB', 'PUNJAB', '0181 4688700/22', '1812452301', 'mayajal@mayahotels.in', 'http://www.mayahotels.in', '4 Star', 53),
 (291, 'Hotel Ritz Plaza', '45The Mall, Amritsar - 143001, PUNJAB', 'PUNJAB', '0183-2562836-39', '0183-2226657', 'ritzhotel@vsnl.com/info@ritzhotel.in', 'www.titzhotel.in', '4 Star', 41),
-(292, 'Country In & Suites, Ajmer', 'Ansal''s Sushant City, Village Gegalkishangarh-Ajmer Road, Ajmer, RAJASTHAN', 'RAJASTHAN', '1456623456', '1456623466', 'maltidutta50@yahoo.com', 'NA', '4 Star', 71),
+(292, 'Country In & Suites, Ajmer', 'Ansal\'s Sushant City, Village Gegalkishangarh-Ajmer Road, Ajmer, RAJASTHAN', 'RAJASTHAN', '1456623456', '1456623466', 'maltidutta50@yahoo.com', 'NA', '4 Star', 71),
 (293, 'The Royal Plaza', 'Shyari - GangtokEast sikkim, Gangtok -737102, SIKKIM', 'SIKKIM', '03592-280232', '03592-281112', 'trp@sarovarhotels.com', 'www.theroyalplazahotel.com', '4 Star', 58),
 (294, 'The Residency Towers', 'Sir Thyagaraya RoadT. Nagar, Chennai - 600 017, TAMIL NADU', 'TAMIL NADU', '044-28156363', '044-28156969', 'restowers@vsnl.net', 'www.theresidency.com', '4 Star', 174),
 (295, 'Hotel Sangam ', 'Collectors Office Road , Tiruchirapalli , TAMIL NADU', 'TAMIL NADU', '4312414700', '431241779', 'hotelsangam@vsnl.com', 'www.hotelsangam.com', '4 Star', 76),
@@ -33168,7 +33229,8 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`ID_RESERVA`, `ID_USUARIO`, `ID_ROOM`, `START_DATE`, `FINISH_DATE`) VALUES
-(5, 31, 32, '2018-12-25 00:00:00', '2018-10-27 00:00:00');
+(1, 2, 1796, '2018-11-25 00:00:00', '2018-11-27 00:00:00'),
+(9, 2, 1797, '2018-11-24 00:00:00', '2018-11-27 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -33192,18 +33254,12 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `name`, `last_name`, `address`, `email`, `password`) VALUES
 (1, 'Andres', 'Perez', 'Main Street 58', 'andres@mail.com', 'andresperez'),
 (2, 'John', 'Steinbeck', 'street 100', 'john@mail.com', 'johnsteinbeck'),
-(30, 'pepito', 'el bandolero', 'rebolo st', 'pepito@email.com', 'pepitoelbandolero'),
+(30, 'Carlos', 'Lopez', 'street 10', 'carlos@mail.com', 'carloslopez'),
 (31, 'cris', 'zapata', 'laluz', 'cris@mail.com', 'cris07');
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `api_keys`
---
-ALTER TABLE `api_keys`
-  ADD PRIMARY KEY (`id_key`);
 
 --
 -- Indices de la tabla `habitaciones`
@@ -33228,25 +33284,20 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `api_keys`
---
-ALTER TABLE `api_keys`
-  MODIFY `id_key` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
 -- AUTO_INCREMENT de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
-  MODIFY `id_habitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34632;
+  MODIFY `id_habitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34612;
 --
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `ID_RESERVA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_RESERVA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

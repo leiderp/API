@@ -1,0 +1,65 @@
+#Titulo {
+	font: 16px Verdana, sans-serif; 
+	color: white; 
+	padding: 14px; 
+	border-bottom-style: solid; 
+	border-right-style: solid;
+	border-left-style: solid;
+	border-color: #0003B8; 
+	background-color: #0003B8;
+}
+
+#links{
+	color:gray;
+	text-decoration: none;
+}	
+
+#links:hover{
+	color: blue; text-decoration: underline;
+}
+
+
+
+#postt{display: inline;}
+
+#postman{text-decoration: none;}
+#postman:hover{color: blue; text-decoration: underline;}
+
+#post{
+	color: #333; display: inline; 
+	font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    padding: 9.5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+li {
+	color: orange;
+}
+
+#ejemplo {
+	display: block;	
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#Documentacion {font-family: sans-serif; font-size: 16px; 
+	border-right-style: none;
+	border-left-style: none;
+	margin-left: 10ex;
+	margin-right: 10ex;
+}
