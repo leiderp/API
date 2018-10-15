@@ -367,14 +367,7 @@ $app->put('/hotel/update/{id}', function (Request $request, Response $response) 
       return "{message:Parametros requeridos incompletos}";
     }
 
-
-
   });
-
-
-
-
-
 
 
   $app->run();
