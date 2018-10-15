@@ -103,9 +103,9 @@ $app->put('/usuario/update/{id}', function (Request $request, Response $response
 		$stmt-> bindParam(':name', $name);
 		$stmt-> bindParam(':last_name', $last_name);
 		$stmt-> bindParam(':address', $address);
-	    $stmt-> bindParam(':email', $email);
+    $stmt-> bindParam(':email', $email);
 		$stmt-> bindParam(':password', $password);
-  	    $stmt->execute();
+    $stmt->execute();
 		echo("1");
 
 	}catch(PDOException $e){
@@ -175,7 +175,7 @@ $app->delete('/hotel/delete/{info}', function (Request $request, Response $respo
 
           	$sql = "SELECT h.id_hotel, r.ID_ROOM FROM reservas r, habitaciones h WHERE h.id_habitacion = r.ID_ROOM AND h.id_hotel = '$str'";
           	$stmt = $db->prepare($sql);
-              $stmt->execute();
+            $stmt->execute();
           	$resultado = $stmt->fetchAll();
           	$items = $stmt->rowCount();
           	$i = 0;
@@ -195,9 +195,6 @@ $app->delete('/hotel/delete/{info}', function (Request $request, Response $respo
       }
       return "{'message':'que pasa brother'}";
 	 });
-
-
-
 
 
   $app->post('/createkey', function (Request $request, Response $response) {
@@ -225,6 +222,74 @@ $app->delete('/hotel/delete/{info}', function (Request $request, Response $respo
       return json_encode($response);
 
     });
+
+/*############################*/
+
+$app->post('/hotel/add', function (Request $request, Response $response) {
+    $key = $request->getParam('key');
+    $name = $request->getParam('name');
+    $address = $request->getParam('address');
+    $state = $request->getParam('state');
+    $phone = $request->getParam('phone');
+    $fax = $request->getParam('fax');
+    $email = $request->getParam('email');
+    $website = $request->getParam('website');
+    $type = $request->getParam('type');
+    $rooms = $request->getParam('rooms');
+
+    $db = Conectar::conexion();
+
+    $sql = "SELECT id_key from api_keys where api_key ='$key'";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $items = $stmt->rowCount();
+    if ($items == 0) {
+      return "{'message':'No API key found in request'}";
+    }else{
+        /*get actual hotel id*/
+        $sql = "SELECT MAX(ID_HOTEL) AS ID_HOTEL FROM informacion";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $resultado = $stmt->fetchAll();
+        $ID_HOTEL = $resultado[0]['ID_HOTEL'];
+        $ID_HOTEL = $ID_HOTEL + 1;
+
+        if ($name != "" && $address != "" && $type != "" && $rooms != "" && $state != "") {
+          /*Creacion del hotel*/
+          $sql = "INSERT INTO informacion (ID_HOTEL, HOTEL_NAME, ADDRESS, STATE, PHONE, FAX, EMAIL_ID, WEBSITE, TYPE, Rooms) VALUES
+          (:id, :name, :address, :state, :phone, :fax, :email, :website, :type, :rooms)";
+          $stmt = $db->prepare($sql);
+
+          $stmt-> bindParam(':id', $ID_HOTEL);
+          $stmt-> bindParam(':name', $name);
+          $stmt-> bindParam(':address', $address);
+          $stmt-> bindParam(':state', $state);
+          $stmt-> bindParam(':phone', $phone);
+          $stmt-> bindParam(':fax', $fax);
+          $stmt-> bindParam(':email', $email);
+          $stmt-> bindParam(':website', $website);
+          $stmt-> bindParam(':type', $type);
+          $stmt-> bindParam(':rooms', $rooms);
+
+          $stmt->execute();
+          //Creacion de las habitaciones del hotel
+          $i = 1;
+          while ($i <= $rooms) {
+              $sql = "INSERT INTO habitaciones (id_hotel) VALUES ($ID_HOTEL)";
+              $stmt = $db->prepare($sql);
+              $stmt->execute();
+              $i = $i + 1;
+          }
+          return "{'message':'hotel creado'}";
+        }else {
+          return "{'message':'faltan parámetros requeridos'}";
+        }
+    }
+  });
+
+
+
+
 
   $app->run();
 
